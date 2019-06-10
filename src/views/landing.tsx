@@ -1,6 +1,11 @@
 import * as React from "react";
-import { Typography, Container, Grid, Button } from "@material-ui/core";
-import DiscoverMore from "../components/discovermore";
+import {
+  Typography,
+  Container,
+  Grid,
+  Button
+} from "@material-ui/core";
+import DiscoverMore from "../../components/discovermore";
 
 import { styled } from "@material-ui/styles";
 
@@ -17,7 +22,7 @@ const Landing: React.FC = () => {
         <StyledGrid
           item
           xs={12}
-          containergi
+          container
           direction="column"
           justify="center"
           alignContent="center"
