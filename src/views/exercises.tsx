@@ -1,74 +1,110 @@
-import React from 'react';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { Container, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(
   createStyles({
     card: {
       maxWidth: 345,
+      marginBottom: 20
     },
     media: {
-      height: 140,
+      height: 140
     },
-  }),
+    container: {
+      padding: '20px 0px 0px',
+      backgroundColor: '#f1f1f1'
+    },
+    grid: {
+      justifyContent: 'center'
+    }
+  })
 );
 
-const cards: {title: string, image: string, text: string, buttons:{ text: string, action: Function, variant: string }[] }[] = 
-[{
-  title: 'Court training',
-  image: 'court.png',
-  text: 'This is the time when you can make the difference, track all your shots and access all the stats of your workout!',
-  buttons: [
-    {
-      text: 'Start workout now',
-      variant: 'primary',
-      action: () => {}
-    },
-    {
-      text: 'Register past workout',
-      variant: 'primary',
-      action: () => {}
-    }
-  ]
-}]
-
+const cards: {
+  title: string;
+  image: string;
+  text: string;
+  buttons: { text: string; action: Function; variant: string }[];
+}[] = [
+  {
+    title: "Court training",
+    image: "court.png",
+    text:
+      "This is the time when you can make the difference, track all your shots and access all the stats of your workout!",
+    buttons: [
+      {
+        text: "Start workout now",
+        variant: "primary",
+        action: () => {}
+      },
+      {
+        text: "Register past workout",
+        variant: "primary",
+        action: () => {}
+      }
+    ]
+  },
+  {
+    title: "Home training",
+    image: "home.png",
+    text:
+      "You can still improve your basketball skills also when you are away from the court, discover more!",
+    buttons: [
+      {
+        text: "Start workout now",
+        variant: "primary",
+        action: () => {}
+      },
+      {
+        text: "Register past workout",
+        variant: "primary",
+        action: () => {}
+      }
+    ]
+  }
+];
 
 export default function MediaCard() {
   const classes = useStyles();
 
-  
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image=""
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+    <Container className={classes.container}>
+      <Grid container className={classes.grid}>
+        {cards.map(card => (
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={card.image}
+                title={card.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {card.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {card.text}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              {card.buttons.map(btn => (
+                <Button size="small" color="primary" onClick={() => btn.action}>
+                  {btn.text}
+                </Button>
+              ))}
+            </CardActions>
+          </Card>
+        ))}
+      </Grid>
+    </Container>
   );
 }

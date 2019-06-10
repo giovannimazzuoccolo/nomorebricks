@@ -5,7 +5,7 @@ import {
   Grid,
   Button
 } from "@material-ui/core";
-import DiscoverMore from "../../components/discovermore";
+import DiscoverMore from "../components/discovermore";
 
 import { styled } from "@material-ui/styles";
 
