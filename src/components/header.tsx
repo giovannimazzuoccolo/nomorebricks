@@ -23,7 +23,7 @@ const Header:React.FC = () => {
 
 
     return(
-        <AppBar position="static" color="primary">
+        <AppBar color="primary" position="fixed">
         <Toolbar className={classes.toolbar}>
           <MdMenu size="30" />
           <Typography variant="h6">NO MORE BRICKS!</Typography>

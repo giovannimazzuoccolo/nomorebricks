@@ -1,13 +1,9 @@
 import * as React from "react";
-import {
-  Typography,
-  Container,
-  Grid,
-  Button
-} from "@material-ui/core";
+import { Typography, Container, Grid, Button } from "@material-ui/core";
 import DiscoverMore from "../components/discovermore";
 
 import { styled } from "@material-ui/styles";
+import { Link } from "react-router-dom";
 
 const Landing: React.FC = () => {
   const [openDiscoverMore, triggerDiscoverMore] = React.useState(false);
@@ -41,7 +37,7 @@ const Landing: React.FC = () => {
             alignContent="center"
           >
             <Button variant="contained" color="primary" size="large">
-              Begin your journey
+              <Link to="/exercises">Begin your journey </Link>
             </Button>
             <Button
               onClick={() => {
